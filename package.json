@@ -1,0 +1,47 @@
+{
+  "name": "@aykutay/react-date-picker",
+  "version": "0.1.0",
+  "description": "date picker for react apps",
+  "main": "dist",
+  "author": "Ahmet Aykut Ay",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmetaykutay/react-date-picker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahmetaykutay/react-date-picker/issues"
+  },
+  "homepage": "https://github.com/ahmetaykutay/react-date-picker#readme",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "flow": "flow"
+  },
+  "keywords": [
+    "react",
+    "date_picker",
+    "date"
+  ],
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-transform-react-jsx": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "flow-bin": "^0.86.0",
+    "react": "^16.6.3",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
