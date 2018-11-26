@@ -23,5 +23,5 @@ module.exports = {
         "jsx-a11y/click-events-have-key-events": 0,
         "react/forbid-prop-types": 0,
         "no-param-reassign": 0
-    }
+    },
 };
