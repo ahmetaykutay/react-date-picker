@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import calendar from '../../helpers/calendar';
-import { CalendarCon } from './styled';
+import { CalendarCon, Td } from './styled';
 
 
 class Calendar extends Component<{}> {
@@ -11,7 +11,8 @@ class Calendar extends Component<{}> {
     for (let i = 0; i < 6; i += 1) {
       const r = [];
       for (let j = 0; j < 7; j += 1) {
-        r.push(<td>{monthArray[j + i * 7]}</td>);
+        const tdInner = monthArray[j + i * 7];
+        r.push(tdInner ? <Td>{tdInner}</Td> : <td />);
       }
       days.push(<tr>{r}</tr>);
     }

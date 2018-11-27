@@ -1,6 +1,8 @@
 // $FlowFixMe
 import styled from 'styled-components';
 
+console.log(styled);
+
 export const DateInputContainer = styled.div`
   background-color: #fff;
   border: 1px solid #efefef;
