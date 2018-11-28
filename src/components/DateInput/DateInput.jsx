@@ -30,7 +30,7 @@ class DateInput extends Component<Props> {
         <span style={{ margin: 'auto' }}>{separator}</span>
         <input value={month !== 0 ? month : ''} type="text" onChange={e => onMonthChange(e.target.value)} />
         <span style={{ margin: 'auto' }}>{separator}</span>
-        <input style={{ width: '36px', paddingLeft: '3px', textAlign: 'left' }} value={year !== 0 ? year : ''} type="text" onChange={e => onYearChange(e.target.value)} />
+        <input style={{ width: '52px', paddingLeft: '3px', textAlign: 'left' }} value={year !== 0 ? year : ''} type="text" onChange={e => onYearChange(e.target.value)} />
         <CalendarIcon
           onClick={onCalendarClick}
         >

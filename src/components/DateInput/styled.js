@@ -1,7 +1,6 @@
 // $FlowFixMe
 import styled from 'styled-components';
 
-console.log(styled);
 
 export const DateInputContainer = styled.div`
   background-color: #fff;
@@ -9,21 +8,23 @@ export const DateInputContainer = styled.div`
   border-radius: 5px;
   padding: 5px 6px;
   display: inline-flex;
-  font-size: 14px;
   overflow: hidden;
+  font-size: 18px;
+  position: relative;
 
   & input{
     outline: none;
     border: none;
     background-color: #fff;
     text-align: center;
-    width: 19px;
+    width: 18px;
+    font-size: 14px;
   }
 `;
 
 export const CalendarIcon = styled.div`
   width: 60px;
-  height: 26px;
+  height: 28px;
   margin: auto auto auto 20px;
   cursor: pointer;
 `;

@@ -3,8 +3,22 @@ import calendar from '../../helpers/calendar';
 import { CalendarCon, Td } from './styled';
 
 
-class Calendar extends Component<{}> {
+type CalendarType = {
+  onSelectDate: Function,
+};
+
+class Calendar extends Component<CalendarType, {}> {
+  constructor(props: CalendarType) {
+    super(props);
+    const currentMonth = calendar.CURRENT_MONTH;
+    this.state = {
+      currentMonth,
+    };
+  }
+
   render() {
+    const { onSelectDate } = this.props;
+    const { currentMonth } = this.state;
     const monthArray = calendar.getMonthArray();
 
     const days = [];
@@ -12,7 +26,13 @@ class Calendar extends Component<{}> {
       const r = [];
       for (let j = 0; j < 7; j += 1) {
         const tdInner = monthArray[j + i * 7];
-        r.push(tdInner ? <Td>{tdInner}</Td> : <td />);
+        r.push(tdInner ? (
+          <Td
+            onClick={() => onSelectDate({ day: tdInner, month: currentMonth, year: 1212 })}
+          >
+            {tdInner}
+          </Td>
+        ) : <td />);
       }
       days.push(<tr>{r}</tr>);
     }

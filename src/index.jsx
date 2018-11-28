@@ -51,6 +51,14 @@ class DatePicker extends Component<DatePickerPropsType> {
     return { year: newVal };
   })
 
+  onSelectDate = (d) => {
+    this.setState({
+      year: d.year,
+      month: d.month,
+      day: d.day,
+    });
+  }
+
   render() {
     const {
       day, month, year, isCalendarOpen,
@@ -70,9 +78,7 @@ class DatePicker extends Component<DatePickerPropsType> {
         />
         {
           isCalendarOpen ? (
-            <div>
-              <Calendar />
-            </div>
+            <Calendar onSelectDate={this.onSelectDate} />
           ) : null
         }
       </DatePickerContainer>
