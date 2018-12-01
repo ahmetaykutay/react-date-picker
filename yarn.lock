@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@aykutay/unique-id-generator@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@aykutay/unique-id-generator/-/unique-id-generator-1.0.2.tgz#2dc87386f3aede198124087fc94f7b196fb9ec5f"
+  integrity sha512-5zw60sSVqCLGaaYkYGPOxezU8cw4ad912lRbyVyp/cOKPGBfDNzxsz1XgPSqdsBlwdKTyzkn02R2tqsj9tIvMQ==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.0.0-beta.35":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"

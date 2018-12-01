@@ -4,7 +4,9 @@ import DatePicker from '../../src';
 
 
 const App = () => (
-  <DatePicker />
+  <DatePicker
+    onSelectDate={val => console.log('Demo:', val)}
+  />
 );
 
 render(<App />, document.getElementById('root'));

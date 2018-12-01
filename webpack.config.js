@@ -47,5 +47,12 @@ module.exports = {
         amd: 'react',
       },
     },
+    {
+      '@aykutay/unique-id-generator': {
+        commonjs2: '@aykutay/unique-id-generator',
+        commonjs: '@aykutay/unique-id-generator',
+        amd: '@aykutay/unique-id-generator',
+      },
+    },
   ],
 };

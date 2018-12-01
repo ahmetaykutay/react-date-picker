@@ -12,7 +12,7 @@ const DatePickerContainer = styled.div`
 
 
 type DatePickerPropsType = {
-  getSelectedDate: Function,
+  onSelectDate: Function,
 };
 
 
@@ -28,9 +28,9 @@ class DatePicker extends Component<DatePickerPropsType> {
   }
 
   notifyDateSelect = () => {
-    const { getSelectedDate } = this.props;
+    const { onSelectDate } = this.props;
     const { day, month, year } = this.state;
-    getSelectedDate(`${day}/${month}/${year}`);
+    onSelectDate(`${day}/${month}/${year}`);
   }
 
   handleDayChange = val => this.setState((state) => {
@@ -51,7 +51,7 @@ class DatePicker extends Component<DatePickerPropsType> {
     return { year: newVal };
   })
 
-  onSelectDate = (d) => {
+  onDateChange = (d) => {
     this.setState({
       year: d.year,
       month: d.month,
@@ -78,7 +78,7 @@ class DatePicker extends Component<DatePickerPropsType> {
         />
         {
           isCalendarOpen ? (
-            <Calendar onSelectDate={this.onSelectDate} />
+            <Calendar onDateChange={this.onDateChange} />
           ) : null
         }
       </DatePickerContainer>
