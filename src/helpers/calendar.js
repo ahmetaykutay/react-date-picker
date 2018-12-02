@@ -4,15 +4,17 @@ const DAYS_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const _d = new Date();
 const CURRENT_MONTH = _d.getMonth() + 1; // 0-11
-const _year = _d.getFullYear();
-const _firstDate = `${MONTHS_LONG[CURRENT_MONTH - 1]} ${1} ${_year}`;
-const _tmp = new Date(_firstDate).toDateString();
-const _firstDay = _tmp.substring(0, 3);
-const _dayNo = DAYS_SHORT.indexOf(_firstDay);
+const CURRENT_YEAR = _d.getFullYear();
 
+function getFirstDay(month: number, year: number): number {
+  const dateStr = `${MONTHS_LONG[month - 1]} ${1} ${year}`;
+  const tmp = new Date(dateStr).toDateString();
+  const firstDay = tmp.substring(0, 3);
+  return DAYS_SHORT.indexOf(firstDay);
+}
 
 function getNumberOfDays({
-  year = _year,
+  year = CURRENT_YEAR,
   month = CURRENT_MONTH,
 }:{
   year?: number,
@@ -24,15 +26,10 @@ function getNumberOfDays({
 const NUMBER_OF_DAYS = getNumberOfDays();
 
 
-function getMonthArray({
-  numberOfDays = NUMBER_OF_DAYS,
-  dayNo = _dayNo,
-}: {
-  numberOfDays?: number,
-  dayNo?: number
-} = {}) {
+function getMonthArray(month: number = CURRENT_MONTH, year: number = CURRENT_YEAR) {
   const calendarDays = [];
-
+  const dayNo = getFirstDay(month, year);
+  const numberOfDays = getNumberOfDays();
   // fill blanks at the beginning
   for (let i = 0; i < dayNo; i += 1) {
     calendarDays.push(null);
@@ -58,4 +55,5 @@ export default {
   getMonthArray,
   getNumberOfDays,
   CURRENT_MONTH,
+  CURRENT_YEAR,
 };

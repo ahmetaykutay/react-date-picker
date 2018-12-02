@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import generateId from '@aykutay/unique-id-generator';
 import calendar from '../../helpers/calendar';
 import { CalendarCon, Td } from './styled';
-
+import MonthSelector from './MonthSelector';
 
 type CalendarType = {
   onSelectDate: Function,
 };
 
 type CalendarStateType = {
-  currentMonth: number,
+  selectedMonth: number,
+  selectedYear: number,
 }
 
 class Calendar extends Component<CalendarType, CalendarStateType> {
@@ -18,14 +19,26 @@ class Calendar extends Component<CalendarType, CalendarStateType> {
     super(props);
     const currentMonth = calendar.CURRENT_MONTH;
     this.state = {
-      currentMonth,
+      selectedMonth: currentMonth,
+      selectedYear: 2012,
     };
+  }
+
+  onMonthSelect = (m: number) => {
+    let newMonth = m;
+    if (newMonth > 12) {
+      newMonth = 1;
+    } else if (newMonth < 1) {
+      newMonth = 12;
+    }
+
+    this.setState({ selectedMonth: newMonth });
   }
 
   render() {
     const { onSelectDate } = this.props;
-    const { currentMonth } = this.state;
-    const monthArray = calendar.getMonthArray();
+    const { selectedMonth, selectedYear } = this.state;
+    const monthArray = calendar.getMonthArray(selectedMonth, selectedYear);
 
     const days = [];
     for (let i = 0; i < 6; i += 1) {
@@ -35,7 +48,7 @@ class Calendar extends Component<CalendarType, CalendarStateType> {
         r.push(tdInner ? (
           <Td
             key={generateId()}
-            onClick={() => onSelectDate({ day: tdInner, month: currentMonth, year: 1212 })}
+            onClick={() => onSelectDate({ day: tdInner, month: selectedMonth, year: selectedYear })}
           >
             {tdInner}
           </Td>
@@ -45,6 +58,7 @@ class Calendar extends Component<CalendarType, CalendarStateType> {
     }
     return (
       <CalendarCon>
+        <MonthSelector selectedMonth={selectedMonth} onMonthSelect={this.onMonthSelect} />
         <table>
           <tbody>
             {days}

@@ -23,3 +23,17 @@ export const Td = styled.td`
     color: #fff;
   }
 `;
+
+export const Triangle = styled.div`
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: ${props => (props.right ? '10px solid #333' : '10px solid transparent')};
+    border-left: ${props => (props.left ? '10px solid #333' : '10px solid transparent')};
+    cursor: pointer;
+    &:hover{
+      border-right: ${props => (props.right ? '10px solid #FF876E' : '10px solid transparent')};
+      border-left: ${props => (props.left ? '10px solid #FF876E' : '10px solid transparent')};
+    }
+`;
