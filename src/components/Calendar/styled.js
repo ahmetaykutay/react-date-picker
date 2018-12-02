@@ -13,7 +13,8 @@ export const CalendarCon = styled.div`
 
 export const Td = styled.td`
   cursor: pointer;
-  color: #333;
+  color: ${props => (props.selected ? '#fff' : '333')};
+  background-color: ${props => (props.selected ? '#FF876E' : 'transparent')};
   padding: 5px;
   border-radius: 3px;
   text-align: center;

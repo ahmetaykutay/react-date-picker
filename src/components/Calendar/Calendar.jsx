@@ -7,6 +7,9 @@ import MonthSelector from './MonthSelector';
 
 type CalendarType = {
   onSelectDate: Function,
+  selectedDay: number,
+  selectedMonth: number,
+  selectedYear: number,
 };
 
 type CalendarStateType = {
@@ -17,26 +20,29 @@ type CalendarStateType = {
 class Calendar extends Component<CalendarType, CalendarStateType> {
   constructor(props: CalendarType) {
     super(props);
-    const currentMonth = calendar.CURRENT_MONTH;
     this.state = {
-      selectedMonth: currentMonth,
-      selectedYear: 2012,
+      selectedMonth: props.selectedMonth || calendar.CURRENT_MONTH,
+      selectedYear: props.selectedYear || calendar.CURRENT_YEAR,
     };
   }
 
   onMonthSelect = (m: number) => {
-    let newMonth = m;
-    if (newMonth > 12) {
-      newMonth = 1;
-    } else if (newMonth < 1) {
-      newMonth = 12;
-    }
-
-    this.setState({ selectedMonth: newMonth });
+    this.setState((state) => {
+      let newMonth = m;
+      let newYear = state.selectedYear;
+      if (newMonth > 12) {
+        newMonth = 1;
+        newYear += 1;
+      } else if (newMonth < 1) {
+        newMonth = 12;
+        newYear -= 1;
+      }
+      return { selectedMonth: newMonth, selectedYear: newYear };
+    });
   }
 
   render() {
-    const { onSelectDate } = this.props;
+    const { onSelectDate, selectedDay } = this.props;
     const { selectedMonth, selectedYear } = this.state;
     const monthArray = calendar.getMonthArray(selectedMonth, selectedYear);
 
@@ -45,8 +51,10 @@ class Calendar extends Component<CalendarType, CalendarStateType> {
       const r = [];
       for (let j = 0; j < 7; j += 1) {
         const tdInner = monthArray[j + i * 7];
+        const isSelected = tdInner === selectedDay && selectedMonth === this.props.selectedMonth;
         r.push(tdInner ? (
           <Td
+            selected={isSelected}
             key={generateId()}
             onClick={() => onSelectDate({ day: tdInner, month: selectedMonth, year: selectedYear })}
           >

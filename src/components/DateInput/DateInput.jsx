@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Icon from '../../CalendarIcon';
 import { DateInputContainer, CalendarIcon } from './styled';
+import { pad } from '../../helpers/util';
 
 
 type Props = {
@@ -26,9 +27,9 @@ class DateInput extends Component<Props> {
     } = this.props;
     return (
       <DateInputContainer>
-        <input value={day !== 0 ? day : ''} type="text" onChange={e => onDayChange(e.target.value)} />
+        <input value={day !== 0 ? pad(day) : ''} type="text" onChange={e => onDayChange(e.target.value)} />
         <span style={{ margin: 'auto' }}>{separator}</span>
-        <input value={month !== 0 ? month : ''} type="text" onChange={e => onMonthChange(e.target.value)} />
+        <input value={month !== 0 ? pad(month) : ''} type="text" onChange={e => onMonthChange(e.target.value)} />
         <span style={{ margin: 'auto' }}>{separator}</span>
         <input style={{ width: '52px', paddingLeft: '3px', textAlign: 'left' }} value={year !== 0 ? year : ''} type="text" onChange={e => onYearChange(e.target.value)} />
         <CalendarIcon

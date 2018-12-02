@@ -78,7 +78,13 @@ class DatePicker extends Component<DatePickerPropsType> {
         />
         {
           isCalendarOpen ? (
-            <Calendar onSelectDate={this.onDateChange} />
+            <Calendar
+              onSelectDate={this.onDateChange}
+              selectedDay={day}
+              selectedMonth={month}
+              selectedYear={year}
+              key={`${month}-${year}`}
+            />
           ) : null
         }
       </DatePickerContainer>
