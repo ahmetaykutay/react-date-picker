@@ -13,13 +13,7 @@ function getFirstDay(month: number, year: number): number {
   return DAYS_SHORT.indexOf(firstDay);
 }
 
-function getNumberOfDays({
-  year = CURRENT_YEAR,
-  month = CURRENT_MONTH,
-}:{
-  year?: number,
-  month?: number
-} = {}) {
+function getNumberOfDays(month: number, year: number) {
   return new Date(year, month, 0).getDate();
 }
 
@@ -29,7 +23,7 @@ const NUMBER_OF_DAYS = getNumberOfDays();
 function getMonthArray(month: number = CURRENT_MONTH, year: number = CURRENT_YEAR) {
   const calendarDays = [];
   const dayNo = getFirstDay(month, year);
-  const numberOfDays = getNumberOfDays();
+  const numberOfDays = getNumberOfDays(month, year);
   // fill blanks at the beginning
   for (let i = 0; i < dayNo; i += 1) {
     calendarDays.push(null);
@@ -52,8 +46,8 @@ export default {
   MONTHS_SHORT,
   DAYS_SHORT,
   NUMBER_OF_DAYS,
-  getMonthArray,
-  getNumberOfDays,
   CURRENT_MONTH,
   CURRENT_YEAR,
+  getMonthArray,
+  getNumberOfDays,
 };
