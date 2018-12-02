@@ -13,11 +13,11 @@ function getFirstDay(month: number, year: number): number {
   return DAYS_SHORT.indexOf(firstDay);
 }
 
-function getNumberOfDays(month: number, year: number) {
+function getNumberOfDays(month: number, year: number): number {
   return new Date(year, month, 0).getDate();
 }
 
-const NUMBER_OF_DAYS = getNumberOfDays();
+const NUMBER_OF_DAYS = getNumberOfDays(CURRENT_MONTH, CURRENT_YEAR);
 
 
 function getMonthArray(month: number = CURRENT_MONTH, year: number = CURRENT_YEAR) {

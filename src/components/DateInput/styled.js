@@ -17,7 +17,7 @@ export const DateInputContainer = styled.div`
     border: none;
     background-color: #fff;
     text-align: center;
-    width: 18px;
+    width: 20px;
     font-size: 14px;
   }
 `;
