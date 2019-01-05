@@ -6,6 +6,13 @@ const _d = new Date();
 const CURRENT_MONTH = _d.getMonth() + 1; // 0-11
 const CURRENT_YEAR = _d.getFullYear();
 
+/**
+ * returns index of first day of a month
+ *
+ * @param {number} month
+ * @param {number} year
+ * @returns {number}
+ */
 function getFirstDay(month: number, year: number): number {
   const dateStr = `${MONTHS_LONG[month - 1]} ${1} ${year}`;
   const tmp = new Date(dateStr).toDateString();
@@ -13,6 +20,13 @@ function getFirstDay(month: number, year: number): number {
   return DAYS_SHORT.indexOf(firstDay);
 }
 
+/**
+ * returns numbers of day a month has
+ *
+ * @param {number} month
+ * @param {number} year
+ * @returns {number}
+ */
 function getNumberOfDays(month: number, year: number): number {
   return new Date(year, month, 0).getDate();
 }
@@ -20,6 +34,14 @@ function getNumberOfDays(month: number, year: number): number {
 const NUMBER_OF_DAYS = getNumberOfDays(CURRENT_MONTH, CURRENT_YEAR);
 
 
+/**
+ * returns an array of day number [1: first day, 2: second day] starting from first day of month
+ * the array size is 42
+ *
+ * @param {number} [month=CURRENT_MONTH]
+ * @param {number} [year=CURRENT_YEAR]
+ * @returns
+ */
 function getMonthArray(month: number = CURRENT_MONTH, year: number = CURRENT_YEAR) {
   const calendarDays = [];
   const dayNo = getFirstDay(month, year);
@@ -29,6 +51,7 @@ function getMonthArray(month: number = CURRENT_MONTH, year: number = CURRENT_YEA
     calendarDays.push(null);
   }
 
+  // fill days
   for (let i = 1; i <= numberOfDays; i += 1) {
     calendarDays.push(i);
   }
