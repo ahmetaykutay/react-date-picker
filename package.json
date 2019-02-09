@@ -2,7 +2,7 @@
   "name": "@aykutay/react-date-picker",
   "version": "0.2.0",
   "description": "date picker for react apps",
-  "main": "dist",
+  "main": "lib",
   "author":{
     "name": "Ahmet Aykut Ay",
     "email": "ahmetaykutay@gmail.com",

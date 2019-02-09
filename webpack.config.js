@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: './src/index',
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'lib'),
     filename: 'index.js',
     library: 'reactDatePicker',
     libraryTarget: 'umd',
