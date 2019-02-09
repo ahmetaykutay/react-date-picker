@@ -1,9 +1,13 @@
 {
   "name": "@aykutay/react-date-picker",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "date picker for react apps",
   "main": "dist",
-  "author": "Ahmet Aykut Ay",
+  "author":{
+    "name": "Ahmet Aykut Ay",
+    "email": "ahmetaykutay@gmail.com",
+    "url": "https://aykutay.net/"
+  },
   "license": "MIT",
   "private": false,
   "repository": {
